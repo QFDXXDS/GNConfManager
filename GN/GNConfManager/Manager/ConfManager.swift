@@ -14,10 +14,6 @@ func handleArray(confArray: Array<Substring>) -> Array<DailyConfModel> {
 
     for item in confArray {
         
-        if item.count == 0 {
-            
-            continue
-        }
         
         let min: Substring = item.split(separator: " ").last!
         let minNumber: Int = getNumber(min: min)

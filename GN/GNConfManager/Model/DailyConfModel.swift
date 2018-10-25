@@ -12,11 +12,11 @@ import Foundation
 fileprivate let AM_TotalTime = 180
 fileprivate let PM_TotalTime = 240
 
-fileprivate let AM_Time = "09:00"
-fileprivate let PM_Time = "01:00"
+fileprivate let AM_BeginTime = "09:00"
+fileprivate let PM_BeginTime = "01:00"
 
 fileprivate let AM_ENDTime = "12:00"
-fileprivate let PM_ENDTime = "05:00"
+fileprivate let PM_ENDTime = "04:00"
 
 fileprivate let AM = "上午"
 fileprivate let PM = "下午"
@@ -24,15 +24,13 @@ fileprivate let PM = "下午"
 
 class DailyConfModel  {
     
-    let am = AMPMModel(AM_TotalTime,AM_Time)
-    var pm = AMPMModel(PM_TotalTime,PM_Time)
+    let am = AMPMModel(AM_TotalTime,AM_BeginTime)
+    var pm = AMPMModel(PM_TotalTime,PM_BeginTime)
     let title:String
 
     init(i: Int) {
         
         title = "第\(i + 1)天"
-        am.confList.append(AM)
-        pm.confList.append(PM)
         
         
         
@@ -61,46 +59,78 @@ extension  DailyConfModel{
 class AMPMModel {
     
     var currentTime: Int = 0
-    var confList = [String]()
-    let totalTime: Int
     var date: Date
+    var confList = [String]()
+
+    var endTime: Date?
+    var totalTime: Int
     
     init(_ totalTime: Int, _ time: String) {
         
         self.totalTime = totalTime
         date = GNDate.getAM_PM(time: time)
+        
+        if self.totalTime == AM_TotalTime {
+            
+            confList.append(AM)
+            endTime = GNDate.getAM_PM(time: AM_ENDTime)
+            confList.append(GNDate.getTime(date: endTime!) + " " + "Lunch")
+        }
+        if self.totalTime == PM_TotalTime {
+            
+            confList.append(PM)
+            endTime = GNDate.getAM_PM(time: PM_ENDTime)
+            confList.append(GNDate.getTime(date: endTime!) + "PM " + "Networking Event")
+            
+        }
+
     }
     
+    @discardableResult
     func getItem(number: Int, item: Substring ) -> Bool {
     
         currentTime += number
         if currentTime <= totalTime {
             
             if confList.first == AM {
+
+                let element = GNDate.getTime(date: date) + "AM " + String(item)
+                confList.insert(element, at: confList.count - 1)
+//                confList.append(GNDate.getTime(date: date) + "AM " + String(item))
                 
-                confList.append(GNDate.getTime(date: date) + "AM " + String(item))
-                
-                if currentTime >=  (totalTime - 30) {
-                    
-                    date = GNDate.getAM_PM(time: AM_ENDTime)
-                    confList.append(GNDate.getTime(date: date) + " " + "Lunch")
-                    
-                }
+//                if currentTime >=  (totalTime - 30) {
+//
+//                    date = GNDate.getAM_PM(time: AM_ENDTime)
+//                    confList.append(GNDate.getTime(date: date) + " " + "Lunch")
+//
+//                }
             }
             if confList.first == PM {
             
-                confList.append(GNDate.getTime(date: date) + "PM " + String(item))
+//                confList.append(GNDate.getTime(date: date) + "PM " + String(item))
                 
-                if currentTime >=  (totalTime - 30) {
+                let element = GNDate.getTime(date: date) + "PM " + String(item)
+
+                confList.insert(element, at: confList.count - 1)
+
+                let current = Date.init(timeInterval: TimeInterval(number*60), since: self.date)
+                let interval = current.timeIntervalSince(endTime!)
+                if  Int(interval) > 0 {
                     
-                    
-                    date = Date.init(timeInterval: TimeInterval(number*60), since: self.date)
-                    confList.append(GNDate.getTime(date: date) +  "PM " + "Networking Event")
+                    let last = GNDate.getTime(date: current) + "PM " + "Networking Event"
+                    confList[confList.count - 1] = last
                 }
+                
+                
+//                if currentTime >=  (totalTime - 30) {
+//
+//
+//                    date = Date.init(timeInterval: TimeInterval(number*60), since: self.date)
+//                    confList.append(GNDate.getTime(date: date) +  "PM " + "Networking Event")
+//                }
             }
             date = Date.init(timeInterval: TimeInterval(number*60), since: self.date)
 
-            
             return true
         } else {
             currentTime -= number
