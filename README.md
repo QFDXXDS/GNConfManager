@@ -2,7 +2,8 @@
 
 
 定义 DailyConfModel对象  代表某一天对象
-定义 DailyConfModel对象  代表某一天对象
+
+定义 AMPMModel对象  代表am(上午)或则pm(下午)对象
 
 DailyConfModel  有am(上午),pm(下午)属性
 

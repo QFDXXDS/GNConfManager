@@ -50,6 +50,7 @@ class DailyConfModel  {
 
 extension  DailyConfModel{
     
+    @discardableResult
     func getItem(number: Int, item: Substring ) -> Bool {
         
         return am.getItem(number:number, item: item) || pm.getItem(number:number, item: item)
