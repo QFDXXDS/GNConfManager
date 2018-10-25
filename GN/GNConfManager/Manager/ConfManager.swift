@@ -34,7 +34,7 @@ func handleArray(confArray: Array<Substring>) -> Array<DailyConfModel> {
             if model === DailyArray.last {
                 
                 let  model = DailyConfModel(i: DailyArray.count)
-                model.am.confList.append(String(item))
+                model.getItem(number: minNumber, item: item)
                 DailyArray.append(model)
                 break
             }
