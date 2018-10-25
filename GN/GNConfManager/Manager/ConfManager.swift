@@ -10,6 +10,7 @@ import Foundation
 
 func handleArray(confArray: Array<Substring>) -> Array<DailyConfModel> {
     
+    
     var DailyArray = [DailyConfModel(i: 0)]
 
     for item in confArray {

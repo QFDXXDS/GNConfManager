@@ -56,6 +56,7 @@ extension  DailyConfModel{
     }
 }
 
+
 class AMPMModel {
     
     var currentTime: Int = 0
@@ -96,18 +97,8 @@ class AMPMModel {
 
                 let element = GNDate.getTime(date: date) + "AM " + String(item)
                 confList.insert(element, at: confList.count - 1)
-//                confList.append(GNDate.getTime(date: date) + "AM " + String(item))
-                
-//                if currentTime >=  (totalTime - 30) {
-//
-//                    date = GNDate.getAM_PM(time: AM_ENDTime)
-//                    confList.append(GNDate.getTime(date: date) + " " + "Lunch")
-//
-//                }
             }
             if confList.first == PM {
-            
-//                confList.append(GNDate.getTime(date: date) + "PM " + String(item))
                 
                 let element = GNDate.getTime(date: date) + "PM " + String(item)
 
@@ -120,14 +111,6 @@ class AMPMModel {
                     let last = GNDate.getTime(date: current) + "PM " + "Networking Event"
                     confList[confList.count - 1] = last
                 }
-                
-                
-//                if currentTime >=  (totalTime - 30) {
-//
-//
-//                    date = Date.init(timeInterval: TimeInterval(number*60), since: self.date)
-//                    confList.append(GNDate.getTime(date: date) +  "PM " + "Networking Event")
-//                }
             }
             date = Date.init(timeInterval: TimeInterval(number*60), since: self.date)
 

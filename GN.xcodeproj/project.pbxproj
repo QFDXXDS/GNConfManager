@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7634834FC42925EB7113D643 /* Pods_GN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8665DEFF095FF9C380EBFE07 /* Pods_GN.framework */; };
 		F005E3DD21819C5E009C41BE /* GNDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005E3DC21819C5E009C41BE /* GNDate.swift */; };
+		F005E3E321821015009C41BE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F005E3E221821015009C41BE /* README.md */; };
 		F01671B821806C8E001CB477 /* ConfManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01671B721806C8E001CB477 /* ConfManagerVC.swift */; };
 		F01671BA21806D14001CB477 /* ConfManagerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01671B921806D14001CB477 /* ConfManagerVM.swift */; };
 		F01671BC21807213001CB477 /* DailyConfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01671BB21807213001CB477 /* DailyConfModel.swift */; };
@@ -36,6 +37,7 @@
 		8665DEFF095FF9C380EBFE07 /* Pods_GN.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GN.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9194EA157FD0E3E94160E317 /* Pods-GN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GN.release.xcconfig"; path = "Pods/Target Support Files/Pods-GN/Pods-GN.release.xcconfig"; sourceTree = "<group>"; };
 		F005E3DC21819C5E009C41BE /* GNDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNDate.swift; sourceTree = "<group>"; };
+		F005E3E221821015009C41BE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		F01671B721806C8E001CB477 /* ConfManagerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfManagerVC.swift; sourceTree = "<group>"; };
 		F01671B921806D14001CB477 /* ConfManagerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfManagerVM.swift; sourceTree = "<group>"; };
 		F01671BB21807213001CB477 /* DailyConfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyConfModel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				F01671BD2180751E001CB477 /* 会议计划.txt */,
+				F005E3E221821015009C41BE /* README.md */,
 				F08740DE1FA6CE240005A418 /* Assets.xcassets */,
 				F08740DF1FA6CE240005A418 /* Info.plist */,
 			);
@@ -379,6 +382,7 @@
 			files = (
 				F08740E21FA6CE240005A418 /* LaunchScreen.storyboard in Resources */,
 				F01671BE2180751E001CB477 /* 会议计划.txt in Resources */,
+				F005E3E321821015009C41BE /* README.md in Resources */,
 				F08740E41FA6CE240005A418 /* Assets.xcassets in Resources */,
 				F08740E31FA6CE240005A418 /* Main.storyboard in Resources */,
 			);
