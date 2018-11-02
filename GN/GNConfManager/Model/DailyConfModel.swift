@@ -33,7 +33,6 @@ class DailyConfModel  {
         title = "第\(i + 1)天"
         
         
-        
 //        let dic = Dictionary.init(grouping: plan) { $0.split(separator: " ").last! }
 
 //        print(dic)
@@ -42,7 +41,7 @@ class DailyConfModel  {
 //         Optional("60min"): ["Writing Fast Tests Against Enterprise Rails 60min", "Communicating Over Distance 60min", "Rails Magic 60min", "Ruby on Rails: Why We Should Move On 60min", "Ruby on Rails Legacy App Maintenance 60min"],5
 //         Optional("30min"): ["Lua for the Masses 30min", "Woah 30min", "Sit Down and Write 30min", "Programming in the Boondocks of Seattle 30min", "Ruby vs. Clojure for Back-End Development 30min", "A World Without HackerNews 30min", "User Interface CSS in Rails Apps 30min"]] 7
 //
-//        Optional("lightning"): ["Rails for Python Developers lightning"], 1
+//        Optional("lightning"): ["Rails for Python Developers lightning"],
 
     }
     
@@ -83,7 +82,7 @@ class AMPMModel {
             confList.append(PM)
             endTime = GNDate.getAM_PM(time: PM_ENDTime)
             confList.append(GNDate.getTime(date: endTime!) + "PM " + "Networking Event")
-            
+           
         }
 
     }
